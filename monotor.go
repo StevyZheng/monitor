@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"monitor/ipmi"
 	"net/http"
 	"runtime"
 	"time"
@@ -15,6 +16,7 @@ func main() {
 
 	v1_0 := router.Group("/v1.0")
 	v1_0.GET("/", func(context *gin.Context) {
+		ipmi.Test()
 		context.JSON(200, gin.H{
 			"app":     "Roycom",
 			"version": "v1.0",
